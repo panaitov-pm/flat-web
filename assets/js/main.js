@@ -17,13 +17,6 @@
 			touchpadSupport: true
 		});
 
-		// Slider
-		$('.client-slider').slick({
-			arrows: false,
-			dots: true,
-			slide: '.client-slide',
-			speed: 1200
-		});
 
 		//Scroll page to need section
 		$(document).on('click', '.navigation__link', function(event) {
@@ -31,7 +24,7 @@
 
 			var elementId = $(this).attr('href');
 
-			if( $(elementId).length > 2 ) {
+			if( elementId.length > 2 ) {
 				var top = $(elementId).offset().top;
 
 				$('body').animate({
