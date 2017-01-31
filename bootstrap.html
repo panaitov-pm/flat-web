@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bootstrap</title>
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<script src="assets/plugins/jquery-1.12.4.min.js"></script>
+	<script src="assets/plugins/bootstrap.min.js"></script>
+</head>
+<body>
+	<style>
+		.tooltip.top .tooltip-arrow{
+			border-top-color: red;
+		}
+		.tooltip-inner{
+			background: red;
+		}
+		.btn.btn-current{
+			background: pink;
+		}
+	</style>
+	<script>
+		$(document).ready(function(){
+			$('.image-tabs a').on('shown.bs.tab', function(){
+				$('#tab-image').attr('src', $(this).attr('data-img'));
+			});
+			$('[data-toggle="tooltip"]').tooltip();
+			$('[data-toggle="switch-modal"]').on('click', function(e){
+				e.preventDefault();
+				var current_modal = $(this).closest('.modal');
+				var target_modal = $($(this).attr('data-target'));
+				current_modal.modal('hide');
+				target_modal.modal('show');
+
+			});
+			$('[data-modal]').on('show.bs.modal', function(){
+				var current_modal_attr = $(this).attr('data-modal');
+				var btn = $('[data-target="[data-modal=' + current_modal_attr + ']"]');
+				btn.addClass('btn-current').prop('disabled', true);
+
+			// Close modal after 5 sec
+			setTimeout(function() {
+				$(document).find( '.modal[data-modal="' + current_modal_attr + '"]' ).modal('hide');
+			}, 5000);
+
+			});
+
+
+			$('[data-modal]').on('hide.bs.modal', function(){
+				var current_modal_attr = $(this).attr('data-modal');
+				var btn = $('[data-target="[data-modal=' + current_modal_attr + ']"]');
+				btn.removeClass('btn-current').prop('disabled', false);
+			});
+			$('.modal [data-toggle="modal"]').on('click', function(){
+				$(this).closest('.modal').modal('hide');
+			});
+		});
+	</script>
+	<main class="container">
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-6">
+				<ul class="nav nav-tabs image-tabs">
+					<li role="presentation" class="active">
+						<a href="#" data-target="[data-tab=1]" role="tab" data-toggle="tab" data-img="assets/img/work-img-1.jpg">First</a>
+					</li>
+					<li role="presentation">
+						<a href="#" data-target="[data-tab=2]" role="tab" data-toggle="tab" data-img="assets/img/work-img-2.jpg">Second</a>
+					</li>
+					<li role="presentation">
+						<a href="#" data-target="[data-tab=3]" role="tab" data-toggle="tab" data-img="assets/img/work-img-3.jpg">Third</a>
+					</li>
+					<li role="presentation">
+						<a href="#" data-target="[data-tab=4]" role="tab" data-toggle="tab" data-img="assets/img/work-img-4.jpg">Fourth</a>
+					</li>
+					<li role="presentation">
+						<a href="#" data-target="[data-tab=5]" role="tab" data-toggle="tab" data-img="assets/img/work-img-5.jpg">Fifth</a>
+					</li>
+					<li role="presentation">
+						<a href="#" data-target="[data-tab=6]" role="tab" data-toggle="tab" data-img="assets/img/work-img-6.jpg">Sixth</a>
+					</li>
+				</ul>
+				<div class="tab-content">
+					<div role="tabpanel" class="tab-pane active" data-tab="1">
+						<p>First Tab Content</p>
+						<p>Lorem ipsum dolor sit amet, <span data-toggle="tooltip" title="First tooltip"><u>consectetur</u></span> adipisicing elit. Laboriosam, expedita, error, tempora iure mollitia doloremque ut repellat consequuntur quam fuga optio earum ratione autem incidunt sed reiciendis neque rem velit.</p>
+					</div>
+					<div role="tabpanel" class="tab-pane" data-tab="2">
+						<p>Second Tab Content</p>
+						<p>Lorem ipsum dolor sit amet, consectetur <span data-toggle="tooltip" title="Second tooltip"><u>adipisicing</u></span> elit. Laboriosam, expedita, error, tempora iure mollitia doloremque ut repellat consequuntur quam fuga optio earum ratione autem incidunt sed reiciendis neque rem velit.</p>
+					</div>
+					<div role="tabpanel" class="tab-pane" data-tab="3">
+						<p>Third Tab Content</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, expedita, error, tempora iure mollitia doloremque ut repellat consequuntur quam fuga optio earum ratione autem <span data-toggle="tooltip" title="Third tooltip"><u>incidunt</u></span> sed reiciendis neque rem velit.</p>
+					</div>
+					<div role="tabpanel" class="tab-pane" data-tab="4">
+						<p>Fourth Tab Content</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, <span data-toggle="tooltip" title="Fourth tooltip"><u>expedita</u></span>, error, tempora iure mollitia doloremque ut repellat consequuntur quam fuga optio earum ratione autem incidunt sed reiciendis neque rem velit.</p>
+					</div>
+					<div role="tabpanel" class="tab-pane" data-tab="5">
+						<p>Fifth Tab Content</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, expedita, error, tempora iure mollitia doloremque ut repellat <span data-toggle="tooltip" title="Fifth tooltip"><u>consequuntur</u></span> quam fuga optio earum ratione autem incidunt sed reiciendis neque rem velit.</p>
+					</div>
+					<div role="tabpanel" class="tab-pane" data-tab="6">
+						<p>Sixth Tab Content</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, expedita, error, <span data-toggle="tooltip" title="Sixth tooltip"><u>tempora</u></span> iure mollitia doloremque ut repellat consequuntur quam fuga optio earum ratione autem incidunt sed reiciendis neque rem velit.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<img id="tab-image" src="assets/img/work-img-1.jpg" alt="tab-image">
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<button data-toggle="modal" data-target="[data-modal=first]" class="btn btn-info">First</button>
+				<button data-toggle="modal" data-target="[data-modal=second]" class="btn btn-success">Second</button>
+				<button data-toggle="modal" data-target="[data-modal=third]" class="btn btn-primary">Third</button>
+				<button data-toggle="modal" data-target="[data-modal=fourth]" class="btn btn-danger">Fourth</button>
+				<button data-toggle="modal" data-target="[data-modal=fifth]" class="btn btn-warning">Fifth</button>
+			</div>
+		</div>
+	</main>
+	<div class="modal fade" data-modal="first" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">First Modal</h4>
+			</div>
+			<div class="modal-body">
+				<p>First Modal Content</p>
+				<div class="text-center">
+					<button class="btn btn-default" disabled>
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</button>
+					<button class="btn btn-default" data-toggle="switch-modal" data-target="[data-modal=second]">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</button>
+				</div>
+				<br>
+				<div class="text-center">
+					<button data-toggle="modal" data-target="[data-modal=first]" class="btn btn-info">First</button>
+					<button data-toggle="modal" data-target="[data-modal=second]" class="btn btn-success">Second</button>
+					<button data-toggle="modal" data-target="[data-modal=third]" class="btn btn-primary">Third</button>
+					<button data-toggle="modal" data-target="[data-modal=fourth]" class="btn btn-danger">Fourth</button>
+					<button data-toggle="modal" data-target="[data-modal=fifth]" class="btn btn-warning">Fifth</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="modal fade" data-modal="second" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Second Modal</h4>
+			</div>
+			<div class="modal-body">
+				<p>Second Modal Content</p>
+				<div class="text-center">
+					<button class="btn btn-default" data-toggle="switch-modal" data-target="[data-modal=first]">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</button>
+					<button class="btn btn-default" data-toggle="switch-modal" data-target="[data-modal=third]">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</button>
+				</div>
+				<br>
+				<div class="text-center">
+					<button data-toggle="modal" data-target="[data-modal=first]" class="btn btn-info">First</button>
+					<button data-toggle="modal" data-target="[data-modal=second]" class="btn btn-success">Second</button>
+					<button data-toggle="modal" data-target="[data-modal=third]" class="btn btn-primary">Third</button>
+					<button data-toggle="modal" data-target="[data-modal=fourth]" class="btn btn-danger">Fourth</button>
+					<button data-toggle="modal" data-target="[data-modal=fifth]" class="btn btn-warning">Fifth</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="modal fade" data-modal="third" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Third Modal</h4>
+			</div>
+			<div class="modal-body">
+				<p>Third Modal Content</p>
+				<div class="text-center">
+					<button class="btn btn-default" data-toggle="switch-modal" data-target="[data-modal=second]">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</button>
+					<button class="btn btn-default" data-toggle="switch-modal" data-target="[data-modal=fourth]">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</button>
+				</div>
+				<br>
+				<div class="text-center">
+					<button data-toggle="modal" data-target="[data-modal=first]" class="btn btn-info">First</button>
+					<button data-toggle="modal" data-target="[data-modal=second]" class="btn btn-success">Second</button>
+					<button data-toggle="modal" data-target="[data-modal=third]" class="btn btn-primary">Third</button>
+					<button data-toggle="modal" data-target="[data-modal=fourth]" class="btn btn-danger">Fourth</button>
+					<button data-toggle="modal" data-target="[data-modal=fifth]" class="btn btn-warning">Fifth</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="modal fade" data-modal="fourth" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Fourth Modal</h4>
+			</div>
+			<div class="modal-body">
+				<p>Fourth Modal Content</p>
+				<div class="text-center">
+					<button class="btn btn-default" data-toggle="switch-modal" data-target="[data-modal=third]">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</button>
+					<button class="btn btn-default" data-toggle="switch-modal" data-target="[data-modal=fifth]">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</button>
+				</div>
+				<br>
+				<div class="text-center">
+					<button data-toggle="modal" data-target="[data-modal=first]" class="btn btn-info">First</button>
+					<button data-toggle="modal" data-target="[data-modal=second]" class="btn btn-success">Second</button>
+					<button data-toggle="modal" data-target="[data-modal=third]" class="btn btn-primary">Third</button>
+					<button data-toggle="modal" data-target="[data-modal=fourth]" class="btn btn-danger">Fourth</button>
+					<button data-toggle="modal" data-target="[data-modal=fifth]" class="btn btn-warning">Fifth</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<div class="modal fade" data-modal="fifth" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Fifth Modal</h4>
+			</div>
+			<div class="modal-body">
+				<p>Fifth Modal Content</p>
+				<div class="text-center">
+					<button class="btn btn-default">
+						<span class="glyphicon glyphicon-chevron-left" data-toggle="switch-modal" data-target="[data-modal=fourth]"></span>
+					</button>
+					<button class="btn btn-default" disabled>
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</button>
+				</div>
+				<br>
+				<div class="text-center">
+					<button data-toggle="modal" data-target="[data-modal=first]" class="btn btn-info">First</button>
+					<button data-toggle="modal" data-target="[data-modal=second]" class="btn btn-success">Second</button>
+					<button data-toggle="modal" data-target="[data-modal=third]" class="btn btn-primary">Third</button>
+					<button data-toggle="modal" data-target="[data-modal=fourth]" class="btn btn-danger">Fourth</button>
+					<button data-toggle="modal" data-target="[data-modal=fifth]" class="btn btn-warning">Fifth</button>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flat Web</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/foundation.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/normalize.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none; height: 0">
+        <symbol id="image-icon" viewBox="0 0 120 120">
+            <path d="M373,537a60,60,0,1,0,60,60A60,60,0,0,0,373,537Zm38.9,89.7-12.2-37.676-17.148,52.951L371.9,610.41l-11.443,33.9A49.033,49.033,0,1,1,411.9,626.7Zm-58.069-49.537a11.5,11.5,0,1,0,11.5,11.5A11.506,11.506,0,0,0,353.832,577.163Z" transform="translate(-313 -537)"/>
+        </symbol> 
+        <symbol id="music-icon" viewBox="0 0 120 120">
+            <path d="M658,537a60,60,0,1,0,60,60A60,60,0,0,0,658,537Zm0,109A49,49,0,1,1,706.994,597,49,49,0,0,1,658,646Zm-21.106-46.2v13.166a12.513,12.513,0,0,0-1.885-.146c-5.674,0-10.273,3.757-10.273,8.391s4.6,8.393,10.273,8.393c5.32,0,9.695-3.3,10.222-7.531h0.056V596.365l29.256-11.96v19.148a12.537,12.537,0,0,0-1.883-.147c-5.676,0-10.278,3.757-10.278,8.391s4.6,8.394,10.278,8.394c5.318,0,9.688-3.3,10.22-7.532h0.054v-48.94l-46.04,18.823V599.8Z" transform="translate(-598 -537)"/>
+        </symbol> 
+        <symbol id="record-icon" viewBox="0 0 120 120">
+            <path d="M943,537a60,60,0,1,0,60,60A60,60,0,0,0,943,537Zm0,109A49,49,0,1,1,991.994,597,48.993,48.993,0,0,1,943,646Zm25-49H958c-0.406,8.5-6.4,16.968-15,16.968S928.405,605.5,928,597H918c0.4,12.939,11.958,25,25,25.007L918,622v10h50V622l-24.99.007C956.047,622,967.59,609.939,968,597Zm-25,10h0c6.206,0,10-3.794,10-10V572c0-6.209-3.794-10-10-10h0c-6.206,0-10,3.791-10,10v25C933,603.206,936.794,607,943,607Z" transform="translate(-883 -537)"/>
+        </symbol>
+        <symbol id="video-icon" viewBox="0 0 120 120">
+            <path d="M1228,537a60,60,0,1,0,60,60A60,60,0,0,0,1228,537Zm0,109A49,49,0,1,1,1276.99,597,49,49,0,0,1,1228,646Zm15-64a5.58,5.58,0,0,0-5-5h-35a5.58,5.58,0,0,0-5,5v30a5.583,5.583,0,0,0,5,5h35a5.583,5.583,0,0,0,5-5V602l15,10V582l-15,10V582Z" transform="translate(-1168 -537)"/>
+        </symbol> 
+        <symbol id="check-icon" viewBox="0 0 17 15.41">
+            <path d="M257,1074.58s1.406,1.6,6.448,7.38C264.357,1083,274,1066.59,274,1066.59s-8.285,9.45-9.966,11.07C263.029,1078.62,257,1074.58,257,1074.58Z" transform="translate(-257 -1066.59)"/>
+        </symbol>
+        <symbol id="search-icon" viewBox="0 0 13.5 13.813">
+            <path d="M1340.06,47a4.91,4.91,0,1,0-2.83,4.434l4.47,4.467,2.04-2.04-4.37-4.367A4.907,4.907,0,0,0,1340.06,47Zm-4.9,3.17a3.171,3.171,0,1,1,3.17-3.17A3.171,3.171,0,0,1,1335.16,50.169Z" transform="translate(-1330.25 -42.094)"/>
+        </symbol>
+    </svg>
+    <!-- BEGIN of header -->
+    <header>
+        <div class="row">
+            <div class="column medium-2 large-3 head-logo">
+                <a href="#">
+                    <img src="assets/img/logo.png" alt="ActiveBox">
+                </a>
+            </div>
+            <!-- END col --> 
+            <div class="column medium-7 large-6 navigation-box">
+                <nav class="navigation">
+                    <button class="menu-toggle menu-toggle--collapse" type="button">
+                        <span class="menu-toggle__box">
+                            <span class="menu-toggle__inner"></span>
+                        </span>
+                    </button>
+                    <ul class="navigation__list">
+                        <li class="navigation__item">
+                            <a href="#" class="navigation__link navigation__link--active">Home</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="#features" class="navigation__link">Our services</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="#clients" class="navigation__link">References / Works</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="#" class="navigation__link">Career</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="#contacts" class="navigation__link">Contact us</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- END col --> 
+            <div class="column medium-3 search">
+                <button class="search-form__btn search-form__btn--toggle">
+                    <svg class="search-form__icon">
+                        <use xlink:href="#search-icon" />
+                    </svg>
+                </button>
+                <form class="search-form search-form--large-screen" action="#" method="post">
+                    <input class="search-form__field search-form__field" type="text" name="search" placeholder="search term...">
+                    <button class="search-form__btn" type="submit">
+                        <svg class="search-form__icon">
+                            <use xlink:href="#search-icon" />
+                        </svg>
+                    </button>
+                </form>
+                <form class="search-form search-form--medium-screen" action="#" method="post">
+                    <input class="search-form__field search-form__field--large" type="text" name="search" placeholder="search term...">
+                    <button class="search-form__btn" type="submit">
+                        <svg class="search-form__icon">
+                            <use xlink:href="#search-icon" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <!-- END search -->
+        </div>
+        <!-- END row -->
+    </header>
+    <!-- END of header -->
+
+    <main>
+        <!-- BEGIN intro  -->
+        <section id="intro" class="intro">
+            <div class="row relative">
+                <h1 class="wow fadeInDown intro__title" data-wow-delay="0.5s">We are your best choice</h1>
+                <div class="intro__img-box"></div>
+            </div>
+            <!-- END row -->
+        </section>
+        <!-- END intro -->
+        <!-- BEGIN features  -->
+        <section id="features" class="features">
+            <div class="row">
+               <div class="medium-6 large-3 columns">
+                   <div class="feature">
+                       <h4 class="feature__title">Lorem ipsum</h4>
+                   </div>
+                   <div class="feature__body">
+                       <div class="feature__icon-box">
+                            <svg class="feature__icon">
+                                <use xlink:href="#image-icon" />
+                            </svg>
+                       </div>
+                       <p class="feature__text">Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.</p>
+                       <a href="#" class="feature__link">more info</a>    
+                   </div>
+               </div> 
+               <div class="medium-6 large-3 columns">
+                   <div class="feature">
+                       <h4 class="feature__title">Dolor sit amet</h4>
+                   </div>
+                   <div class="feature__body">
+                       <div class="feature__icon-box">
+                           <svg class="feature__icon">
+                                <use xlink:href="#music-icon" />
+                            </svg>
+                       </div>
+                       <p class="feature__text">Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.</p>
+                       <a href="#" class="feature__link">more info</a>    
+                   </div>
+               </div> 
+               <div class="medium-6 large-3 columns">
+                   <div class="feature">
+                       <h4 class="feature__title">Nullam in ultricies</h4>
+                   </div>
+                   <div class="feature__body">
+                       <div class="feature__icon-box">
+                           <svg class="feature__icon">
+                                <use xlink:href="#record-icon" />
+                            </svg>
+                       </div>
+                       <p class="feature__text">Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.</p>
+                       <a href="#" class="feature__link">more info</a>    
+                   </div>
+               </div> 
+               <div class="medium-6 large-3 columns">
+                   <div class="feature">
+                       <h4 class="feature__title">Vestibulum at sapie</h4>
+                   </div>
+                   <div class="feature__body">
+                       <div class="feature__icon-box">
+                           <svg class="feature__icon">
+                                <use xlink:href="#video-icon" />
+                            </svg>
+                       </div>
+                       <p class="feature__text">Aenean consequat at tortor ac feugiat. Praesent at tristique ipsum. Cras henrit volutpat vulputate.</p>
+                       <a href="#" class="feature__link">more info</a>    
+                   </div>
+               </div>
+            </div>
+            <!-- END row -->
+        </section>
+        <!-- END features -->
+
+        <!-- BEGIN we-are  -->
+        <section class="we-are">
+            <h3 class="we-are__title">
+                We are no. 1... <span class="we-are__title--bold">WHY?</span>
+            </h3> 
+            <div class="row">
+            <div class="large-6 columns">
+                <div class=" we-are__item">
+                   <ul class="we-are__list">
+                       <li><a href="#">Best hardware around the world</a></li>
+                       <li><a href="#">TB Storage for all our clients</a></li>
+                       <li><a href="#">Easy powerfull control panel with special tools</a></li>
+                   </ul> 
+                </div>
+                <!-- END we-are__item -->
+            </div>
+            <!-- END col --> 
+            <div class="large-6 columns">
+                <div class=" we-are__item">
+                   <ul class="we-are__list">
+                       <li><a href="#">Free updates every month</a></li>
+                       <li><a href="#">Managed uptime, OS support &amp; security</a></li>
+                       <li><a href="#">24/7 customer via phone and email to help you implement</a></li>
+                   </ul> 
+                </div>
+                <!-- END we-are__item -->
+            </div>
+            <!-- END col -->
+            </div>
+            <!-- END row -->
+        </section>
+        <!-- END we-are -->
+
+        <!-- BEGIN clients  -->
+        <section id="clients" class="clients">
+            <div class="row">
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/beetroot.png" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col --> 
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/Lohika.png" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col --> 
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/MSFT.png" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col --> 
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/google.png" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col -->
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/blackberry.png" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col --> 
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/luxoft.png" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col --> 
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/Comodo.png" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col --> 
+                <div class="small-6 medium-4 large-3 columns">
+                    <div class="client">
+                        <img src="assets/img/intel-logo-symbol-brand-1920x1200.jpg" alt="brand">
+                    </div>
+                    <!-- END client -->
+                </div>
+                <!-- END col -->
+            </div>
+            <!-- END row -->
+        </section>
+        <!-- END clients -->
+        
+    </main>
+   
+    <!-- BEGIN footer  -->
+    <footer id="contacts">
+        <div class="row">
+           <div class="medium-6 large-3 columns">
+                <div class="company-info">
+                    <h4 class="company-info__title">Company</h4>
+                    <ul class="company-info__list">
+                        <li>bout us</li>
+                        <li>A Career</li>
+                        <li>Our works / References</li>
+                        <li>Contact us</li>
+                    </ul>
+                </div>
+                <!-- END foot-info -->
+            </div>
+            <!-- END col -->  
+            <div class="medium-6 large-3 columns">
+                <div class="company-info">
+                    <h4 class="company-info__title">Our services</h4>
+                    <ul class="company-info__list">
+                        <li>Lorem ipsum</li>
+                        <li>Dolor sit amet</li>
+                        <li>Nullam in ultricies</li>
+                        <li>CVestibulum at sa</li>
+                    </ul>
+                </div>
+                <!-- END foot-info -->
+            </div>
+            <!-- END col -->  
+            <div class="medium-6 large-3 columns">
+                <div class="company-info">
+                    <h4 class="company-info__title">Contact us</h4>
+                    <ul class="company-info__list">
+                        <li><a class="company-info__tel" href="tel:5881254666 ">588 125 4666 </a></li>
+                        <li><a class="company-info__email" href="mailto:support@yourdomain.com">support@yourdomain.com</a></li>
+                        <li>5 Place Road</li>
+                        <li>Park New York</li>
+                    </ul>
+                </div>
+                <!-- END foot-info -->
+            </div>
+            <!-- END col --> 
+            <div class="medium-6 large-3 columns">
+                <img src="assets/img/payments.png" alt="payments">
+            </div>
+            <!-- END col --> 
+        </div>
+        <!-- END row -->
+    </footer>
+    <!-- END footer -->
+
+    <script src="assets/plugins/jquery-1.12.4.min.js"></script>
+    <script src="assets/plugins/SmoothScroll.min.js"></script>
+    <script src="assets/plugins/foundation.min.js"></script>
+    <script src="assets/plugins/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
